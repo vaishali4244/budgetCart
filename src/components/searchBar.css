@@ -1,0 +1,15 @@
+.search {
+  margin: 0.1rem 1rem;
+}
+
+.search-input {
+  margin: 0.5rem 1rem;
+  height: 1.8rem;
+  font-size: 1rem;
+  padding: 0.3% 1%;
+  border-radius: 8px;
+}
+
+.search label {
+  font-size: 1.1rem;
+}

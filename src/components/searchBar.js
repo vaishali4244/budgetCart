@@ -1,19 +1,22 @@
+import './searchBar.css'
 
+const SearchBar = ({ setSearch, search }) => {
 
-const SearchBar = ({setSearch,search}) => {
+  return (
+    <div className='search'>
+      <label htmlFor="search">
+        Search by name:
+      </label>
+      <input className=" search-input"
+        type="search"
+        placeholder="product name"
+        onChange={(e) => { setSearch(e.target.value) }}
+        value={search}
+        name="search"
+      />
 
-    return (
-        <div>
-          
-            <input className=" " 
-            type="search" 
-            placeholder="job title" 
-            onChange={(e)=>{setSearch(e.target.value)}} 
-            value={search}
-            />
-            <button >Search</button>
-        </div>
-    )
+    </div>
+  )
 }
 
 export default SearchBar;

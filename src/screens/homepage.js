@@ -5,8 +5,6 @@ import axios from "axios";
 import './homepage.css'
 
 
-
-
 const Homepage = () => {
 
     const [data, setData] = useState([]);
@@ -72,12 +70,12 @@ const Homepage = () => {
         setMinPrice("");
         setMaxPrice("");
     };
-    
-    
+
+
     return (
         <div>
             <nav className="navbar">
-            <h2>Create your Shopping List now !</h2>
+                <h2>Create your Shopping List now !</h2>
                 <div className="cart-box">
                     <div className="cart-img">
                         <img src={require("../assets/images/shoppingCart.png")} alt="" className="cart-icon" />
@@ -89,50 +87,54 @@ const Homepage = () => {
             </nav>
             <section className="content-section">
 
-            <SearchBar search={search} setSearch={setSearch} />
-            
-            <div>
-                <label>
-                    Min Price:
-                    <input
-                        type="number"
-                        value={minPrice}
-                        step={50}
-                        min={0}
-                        onChange={(e) => setMinPrice(e?.target?.value)}
-                    />
-                </label>
-                <label>
-                    Max Price:
-                    <input
-                        type="number"
-                        value={maxPrice}
-                        min={parseInt(minPrice) + parseInt(100)}
-                        step={50}
-                        onChange={(e) => setMaxPrice(e?.target?.value)}
+                <SearchBar search={search} setSearch={setSearch} />
+
+                <div className="price-section">
+                    <label>
+                        Price range:
+                        <input
+                            type="number"
+                            value={minPrice}
+                            step={50}
+                            min={0}
+                            onChange={(e) => setMinPrice(e?.target?.value)}
+                            placeholder={0}
                         />
-                </label>
-                <button onClick={handleFilterByPrice} disabled={isFilterApplied}>Apply Filter</button>
-                <button onClick={resetFilter}>Reset Filter</button>
-            </div>
-            
-            {data?.map((item, index) => {
-                return (
-                    <div style={{ border: "1px solid green" }}>
-                        <p>Title:{item?.title}</p>
-                        <p>rating:{item?.rating}
-                        </p>
-                        <img src={item?.thumbnail} alt="" />
-                        
-                        <p>Price:{item?.price} <span>Discount:{item?.discountPercentage
-}% off</span></p>
-                        
-                        <button onClick={() => { handleAddToCart(item) }}>Add to cart</button>
-                    </div>
-                )
-            })}
-            
-                        </section>
+                    </label>
+                    <label>
+                        to
+                        <input
+                            type="number"
+                            value={maxPrice}
+                            min={parseInt(minPrice) + parseInt(100)}
+                            step={50}
+                            onChange={(e) => setMaxPrice(e?.target?.value)}
+                            placeholder={3000}
+                        />
+                    </label>
+                    <button onClick={handleFilterByPrice} disabled={isFilterApplied}>Apply</button>
+                    <button onClick={resetFilter}>Reset value</button>
+                </div>
+                <div className="product">
+
+                    {data?.map((item, index) => {
+                        return (
+                            <div className="product-box"
+                            >
+                                <img className="product-img" src={item?.thumbnail} alt="" />
+                                <span className="rating">{item?.rating} <img src={require("../assets/images/star.png")} alt="" /> </span>
+                                <h3>{item?.title}</h3>
+
+                                <p className="product-price">&#8377;{item?.price} <span>({item?.discountPercentage
+                                }% off)</span></p>
+
+                                <button onClick={() => { handleAddToCart(item) }}>Add to cart</button>
+                            </div>
+                        )
+                    })}
+                </div>
+
+            </section>
         </div>
     )
 }
