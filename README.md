@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## credentials used :
+username:kminchelle
+password:0lelplR
+
+## Deployed
+Link :https://budgetcart.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
