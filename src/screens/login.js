@@ -28,6 +28,21 @@ const Login = (props) => {
                 }
             })
     }
+    const recruitFunc = () => {
+        fetch('https://dummyjson.com/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                username: 'kminchelle',
+                password: '0lelplR',
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                    props.setToken(data?.token);
+                    navigate(data?.token ? "homepage" : "/")
+            })
+    }
 
     return (
         <div className="login">
@@ -44,7 +59,9 @@ const Login = (props) => {
                 <br />
                 <button onClick={loginFunc}>Submit</button>
             </div>
-
+<div>
+   <button className="recruit-btn" onClick={recruitFunc}>Recruiter Click Here</button> 
+</div>
         </div>
 
     )

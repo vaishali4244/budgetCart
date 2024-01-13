@@ -1,8 +1,9 @@
 
 import { useEffect, useState } from "react";
 import SearchBar from "../components/searchBar";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from "axios";
-import './homepage.css'
+import './homepage.css';
 
 
 const Homepage = () => {
@@ -59,18 +60,16 @@ const Homepage = () => {
         });
 
         setData(filteredData);
-        setIsFilterApplied(true); // Set the filter applied flag to true
+        setIsFilterApplied(true);
     };
 
     // Reset filter
     const resetFilter = () => {
         setData(resetData);
-        // console.log("setdata", setData)
-        setIsFilterApplied(false); // Reset the filter applied flag to false
+        setIsFilterApplied(false);
         setMinPrice("");
         setMaxPrice("");
     };
-
 
     return (
         <div>
@@ -79,7 +78,6 @@ const Homepage = () => {
                 <div className="cart-box">
                     <div className="cart-img">
                         <img src={require("../assets/images/shoppingCart.png")} alt="" className="cart-icon" />
-
                     </div>
                     <p className="cart-count" style={{}}>{productCount}</p>
                     <p className="cart-amount">=  <span>&#8377;</span>{price}</p>
@@ -121,8 +119,8 @@ const Homepage = () => {
                         return (
                             <div className="product-box"
                             >
-                                <img className="product-img" src={item?.thumbnail} alt="" />
-                                <span className="rating">{item?.rating} <img src={require("../assets/images/star.png")} alt="" /> </span>
+                                <LazyLoadImage className="product-img" src={item?.thumbnail} alt="" />
+                                <span className="rating">{item?.rating} <LazyLoadImage src={require("../assets/images/star.png")} alt="" /> </span>
                                 <h3>{item?.title}</h3>
 
                                 <p className="product-price">&#8377;{item?.price} <span>({item?.discountPercentage

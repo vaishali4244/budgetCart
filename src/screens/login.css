@@ -20,7 +20,7 @@
   width: 40vw;
   height: auto;
   margin-top: 10vh;
-  box-shadow: 5px 4px 5px #ac8ff6, -5px -4px 5px #ac8ff6;
+  box-shadow: 0 0 5px 5px #ac8ff6;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,7 +46,6 @@
 .details button {
   border: 1px solid #ac8ff6;
   border-radius: 6px;
-  font-size: 1rem;
   padding: 0.2% 0.8%;
   margin: 1rem 1rem;
   background: #ac8ff6;
@@ -58,4 +57,40 @@
 
 .details button:hover {
   background: #8c73cb;
+}
+
+.recruit-btn {
+  border: 1px solid #000000;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 1.5% 0.8%;
+  margin: 3rem 1rem;
+  background: rgb(190, 170, 241);
+  width: 13vw;
+}
+
+.recruit-btn:hover {
+  box-shadow: 0 0px 5px 1px #8c73cb;
+}
+
+@media screen and (max-width: 530px) {
+  .heading {
+    font-size: 1rem;
+    font-weight: lighter;
+  }
+
+  .details label {
+    font-size: 1rem;
+    font-weight: 0;
+  }
+
+  .details button {
+    font-weight: 0;
+    font-size: 0.9rem;
+    width: auto;
+  }
+
+  .recruit-btn {
+    width: auto;
+  }
 }
